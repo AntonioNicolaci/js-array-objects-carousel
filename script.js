@@ -10,10 +10,18 @@ const arrImages = [
 const containerHighlighted = document.querySelector('.highlighted');
 const containerThumbs = document.querySelector('.thumbs');
 
-for (let i = 0; i < arrImages.length; i++) {
-	containerHighlighted.innerHTML += `<img src="${arrImages[i]}" alt="" class="${i == 0 ? 'active' : ''}">`;
-	containerThumbs.innerHTML += `<img src="${arrImages[i]}" alt="" class="${i == 0 ? 'active' : ''}">`;
-}
+// VECCHIO CODICE
+// for (let i = 0; i < arrImages.length; i++) {
+// 	containerHighlighted.innerHTML += `<img src="${arrImages[i]}" alt="" class="${i == 0 ? 'active' : ''}">`;
+// 	containerThumbs.innerHTML += `<img src="${arrImages[i]}" alt="" class="${i == 0 ? 'active' : ''}">`;
+// }
+
+
+// NUOVO CODICE
+arrImages.forEach((element, index) => {
+    containerHighlighted.innerHTML += `<img src="${element}" alt="" class="${index == 0 ? 'active' : ''}">`;
+	containerThumbs.innerHTML += `<img src="${element}" alt="" class="${index == 0 ? 'active' : ''}">`;
+});
 
 
 // selezionimo le immagini nell'html
@@ -62,26 +70,33 @@ btnPrev.addEventListener('click',
 );
 
 // ciclo per aggiungere gli event listeners alle miniature
-for (let i = 0; i < listThumbs.length; i++) {
-	listThumbs[i].addEventListener('click',
+
+
+// VECCHIO CODICE
+// for (let i = 0; i < listThumbs.length; i++) {
+// 	listThumbs[i].addEventListener('click',
+// 		function() {
+// 			console.log('cliccata la miniature in posizione ' + i)
+// 			listHighlighted[activeIndex].classList.remove('active');
+// 			listThumbs[activeIndex].classList.remove('active');
+// 			activeIndex = i;
+// 			listHighlighted[activeIndex].classList.add('active');
+// 			listThumbs[activeIndex].classList.add('active');
+// 		}
+// 	)
+// }
+
+
+// NUOVO CODICE
+listThumbs.forEach((element, index) => {
+    element.addEventListener('click',
 		function() {
-			console.log('cliccata la miniature in posizione ' + i)
+			console.log('cliccata la miniature in posizione ' + index)
 			listHighlighted[activeIndex].classList.remove('active');
 			listThumbs[activeIndex].classList.remove('active');
-			activeIndex = i;
+			activeIndex = index;
 			listHighlighted[activeIndex].classList.add('active');
 			listThumbs[activeIndex].classList.add('active');
 		}
 	)
-}
-
-
-
-/*
-btnNext ---> al click fai function() {...}
-btnPrev ---> al click fai function() {...}
-thumb0 ----> al click fai function() {...}
-thumb1 ----> al click fai function() {...}
-thumb3 ----> al click fai function() {...}
-thumb4 ----> al click fai function() {...}
-*/
+});
