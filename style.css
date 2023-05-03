@@ -34,7 +34,7 @@
 	width: 20%;
 }
 
-.highlighted img {
+.highlighted img{
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -71,4 +71,21 @@
 .thumbs .active {
 	filter: brightness(1);
 	border: 5px solid lightgrey;
+}
+.img-text{
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    bottom: 15%;
+    right: 2%;
+    color: #fff;
+    font-size: .8rem;
+}
+.img-text span{
+    max-width: 65%;
+    text-align: end;
+}
+.img-active{
+    display: flex;
 }
