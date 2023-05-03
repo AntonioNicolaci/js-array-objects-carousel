@@ -1,11 +1,3 @@
-// const arrImages = [
-// 	'img/01.webp',
-// 	'img/02.webp',
-// 	'img/03.webp',
-// 	'img/04.webp',
-// 	'img/05.webp',
-// 	'https://www.freecodecamp.org/news/content/images/2022/08/pexels-antonio-batinic--4164418--1-.jpg'
-// ];
 const images = [
     {
         image: 'img/01.webp',
@@ -33,14 +25,6 @@ const images = [
 const containerHighlighted = document.querySelector('.highlighted');
 const containerThumbs = document.querySelector('.thumbs');
 
-// VECCHIO CODICE
-// for (let i = 0; i < arrImages.length; i++) {
-// 	containerHighlighted.innerHTML += `<img src="${arrImages[i]}" alt="" class="${i == 0 ? 'active' : ''}">`;
-// 	containerThumbs.innerHTML += `<img src="${arrImages[i]}" alt="" class="${i == 0 ? 'active' : ''}">`;
-// }
-
-
-// NUOVO CODICE
 images.forEach((element, index) => {
     containerHighlighted.innerHTML += `
     <img src="${element.image}" alt="${element.title}" ${index == 0 ? 'class="active"' : ''}>
@@ -105,23 +89,6 @@ btnPrev.addEventListener('click',
 
 // ciclo per aggiungere gli event listeners alle miniature
 
-
-// VECCHIO CODICE
-// for (let i = 0; i < listThumbs.length; i++) {
-// 	listThumbs[i].addEventListener('click',
-// 		function() {
-// 			console.log('cliccata la miniature in posizione ' + i)
-// 			listHighlighted[activeIndex].classList.remove('active');
-// 			listThumbs[activeIndex].classList.remove('active');
-// 			activeIndex = i;
-// 			listHighlighted[activeIndex].classList.add('active');
-// 			listThumbs[activeIndex].classList.add('active');
-// 		}
-// 	)
-// }
-
-
-// NUOVO CODICE
 listThumbs.forEach((element, index) => {
     element.addEventListener('click',
 		function() {
